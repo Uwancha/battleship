@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "watch": "jest --watch *.js",
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --open"
   },
@@ -28,15 +29,6 @@
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "testMatch": [
-      "**/__tests__/**/*.js",
-      "**/?(*.)+(spec|test).js"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
   }
+  
 }
