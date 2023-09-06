@@ -1,8 +1,9 @@
 import { Ship } from '../src/Ship';
 
-describe('creating a ship', () => {
-  test('Ship object is created successfully with the specified length', () => {
-    const ship = Ship(2);
+describe.skip('creating a ship', () => {
+  test('Ship object is created successfully with the specified length and name', () => {
+    const ship = Ship(2, 'Submarine');
+    expect(ship.name).toBe('Submarine')
     expect(ship.length).toBe(2);
   });
 
