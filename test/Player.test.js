@@ -1,4 +1,4 @@
-import { Player } from "../src/Player"
+import { createAIPlayer, createHumanPlayer } from "../src/Player"
 
 describe('Player', () => {
 
@@ -7,10 +7,10 @@ describe('Player', () => {
     };
 
 
-    test('takeTurn returns an attack and the result of the attack',() => {
+    test('AI player takeTurn generates attack coordinates and returns the result of the attack',() => {
         
-        const player = Player(mockOpponentGameboard);
-        const { attack, result } = player.takeTurn();
+        const aiPlayer = createAIPlayer(mockOpponentGameboard);
+        const { attack, result } = aiPlayer.takeTurn();
 
         expect(Array.isArray(attack)).toBe(true);
         expect(attack.length).toBe(2);
@@ -20,18 +20,30 @@ describe('Player', () => {
 
     });
 
-    test('takeTurn doesn\'t attack the same coordinates twice', () => {
+    test('Human player takeTurn uses provided attack coordinates and returns the result of the attack', () => {
+        const humanPlayer = createHumanPlayer(mockOpponentGameboard);
+        const attackCoordinates = [2, 3];
+        const { attack, result } = humanPlayer.takeTurn(attackCoordinates);
+
+        expect(attack).toEqual(attackCoordinates);
+
+        expect(result).toBeDefined();
+        expect(mockOpponentGameboard.receiveAttack).toHaveBeenCalledWith(attackCoordinates);
+        
+    });
+
+    test('AI player\'s takeTurn doesn\'t attack the same coordinates twice', () => {
 
         const mockOpponentGameboard = {
             receiveAttack: jest.fn().mockReturnValue('dummyResult'),
         };
 
-        const player = Player(mockOpponentGameboard);
+        const aiPlayer = createAIPlayer(mockOpponentGameboard);
 
         const previousAttacks = [];
 
         for (let i = 0; i < 10; i++) {
-            const { attack, result } = player.takeTurn();
+            const { attack, result } = aiPlayer.takeTurn();
 
             expect(previousAttacks.includes(attack)).toBe(false);
 
@@ -39,7 +51,9 @@ describe('Player', () => {
 
             expect(result).toBeDefined();
             expect(mockOpponentGameboard.receiveAttack).toHaveBeenCalledWith(attack);
-        }
+        };
 
     });
-})
+});
+
+

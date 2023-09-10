@@ -1,4 +1,4 @@
-function Player(opponentGameboard) {
+function createAIPlayer(opponentGameboard) {
 
     function randomAttack() {
         const row = Math.floor(Math.random() * 10);
@@ -23,4 +23,14 @@ function Player(opponentGameboard) {
 
 };
 
-export { Player };
+function createHumanPlayer(opponentGameboard) {
+    function takeTurn(attackCoordinates) {
+      const result = opponentGameboard.receiveAttack(attackCoordinates);
+      return { attack: attackCoordinates, result };
+    }
+  
+    return { takeTurn };
+  }
+  
+
+export { createAIPlayer, createHumanPlayer };
