@@ -52,11 +52,11 @@ function Game() {
     ]);
   
     gameboard2.placeShip(gameboard2Carrier, [
-      { row: 8, col: 8 },
-      { row: 8, col: 9 },
-      { row: 8, col: 10 },
-      { row: 8, col: 11 },
-      { row: 8, col: 12 },
+      { row: 0, col: 0 },
+      { row: 0, col: 1 },
+      { row: 0, col: 2 },
+      { row: 0, col: 3 },
+      { row: 0, col: 4 },
     ]);
     gameboard2.placeShip(gameboard2Battleship, [
       { row: 5, col: 5 },
@@ -65,18 +65,18 @@ function Game() {
       { row: 8, col: 5 },
     ]);
     gameboard2.placeShip(gameboard2Sbmarine, [
+      { row: 5, col: 9 },
+      { row: 6, col: 9 },
+      { row: 7, col: 9 },
+    ]);
+    gameboard2.placeShip(gameboard2Destroyer, [
       { row: 2, col: 0 },
       { row: 2, col: 1 },
       { row: 2, col: 2 },
     ]);
-    gameboard2.placeShip(gameboard2Destroyer, [
-      { row: 5, col: 9 },
-      { row: 6, col: 9 },
-      { row: 5, col: 9 },
-    ]);
     gameboard2.placeShip(gameboard2Patrol, [
-      { row: 2, col: 3 },
-      { row: 2, col: 4 },
+      { row: 4, col: 0 },
+      { row: 4, col: 1 },
     ]);
 
   }
@@ -91,5 +91,4 @@ function Game() {
 }
 
 export { Game };
-
 
