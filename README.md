@@ -21,7 +21,7 @@ To run the Battleship game locally, follow these steps:
 
 ## Demo
 
-[Live Demo]()
+[Live Demo](https://uwancha.github.io/battleship/)
 
 ## Technologies and Tools
 
