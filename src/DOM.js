@@ -41,4 +41,4 @@ function statusMessage(message) {
   messageContainer.textContent = message;
 }
 
-export { renderGameBoards, statusMessage };
+export { renderGameBoards, statusMessage }; 

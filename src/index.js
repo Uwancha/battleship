@@ -77,4 +77,4 @@ function updateGameBoardUI(gameboardContainer, coordinates, result) {
 
 function endGame(winner) {
   statusMessage(winner);
-}
+} 
